@@ -9,5 +9,6 @@
 
 	<body>
 		<div>Hello ${name}</div>
+		<div>${json}</div>
 	</body>
 </html>
