@@ -7,4 +7,5 @@ import com.example.library.domain.User;
 
 @Repository
 public interface UserRepository extends JpaRepository<User, Integer> {
+	User readByUsername(String username);
 }

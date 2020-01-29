@@ -1,51 +1,51 @@
 package com.example.library.domain;
 
+import java.util.Set;
+
+import javax.persistence.CollectionTable;
 import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "user")
+@Table(name = "usr")
 public class User {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
-	
-	@Column(name = "name")
-	private String name;
-	
+
+	@Column(name = "username")
+	private String username;
+
 	@Column(name = "age")
 	private Integer age;
-	
+
 	@Column(name = "email")
 	private String email;
-	
+
 	@Column(name = "password")
 	private String password;
 
+	@Column(name = "active")
+	private boolean active;
+
+	@CollectionTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"))
+	@ElementCollection(targetClass = Role.class, fetch = FetchType.EAGER)
+	@Enumerated(EnumType.STRING)
+	@Column(name = "roles")
+	private Set<Role> roles;
+
 	public User() {
 		super();
-	}
-
-	public User(String name, Integer age, String email, String password) {
-		super();
-		this.name = name;
-		this.age = age;
-		this.email = email;
-		this.password = password;
-	}
-
-	public User(Integer id, String name, Integer age, String email, String password) {
-		super();
-		this.id = id;
-		this.name = name;
-		this.age = age;
-		this.email = email;
-		this.password = password;
 	}
 
 	public Integer getId() {
@@ -56,12 +56,12 @@ public class User {
 		this.id = id;
 	}
 
-	public String getName() {
-		return name;
+	public String getUsername() {
+		return username;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
 	public Integer getAge() {
@@ -88,9 +88,25 @@ public class User {
 		this.password = password;
 	}
 
+	public boolean isActive() {
+		return active;
+	}
+
+	public void setActive(boolean active) {
+		this.active = active;
+	}
+
+	public Set<Role> getRoles() {
+		return roles;
+	}
+
+	public void setRoles(Set<Role> roles) {
+		this.roles = roles;
+	}
+
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", name=" + name + ", age=" + age + ", email=" + email + ", password=" + password
-				+ "]";
+		return "User [id=" + id + ", username=" + username + ", age=" + age + ", email=" + email + ", password="
+				+ password + ", active=" + active + ", roles=" + roles + "]";
 	}
 }

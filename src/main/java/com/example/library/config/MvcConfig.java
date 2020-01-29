@@ -1,24 +1,22 @@
 package com.example.library.config;
 
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
-@EnableAutoConfiguration
+//@EnableAutoConfiguration
+//@ComponentScan
+
 @Configuration
-@ComponentScan
-public class WebMvcConfig implements WebMvcConfigurer {
+public class MvcConfig implements WebMvcConfigurer {
+
 	@Override
 	public void addViewControllers(ViewControllerRegistry registry) {
-		registry.addViewController("/").setViewName("greeting");
-		registry.addViewController("/greeting").setViewName("greeting");
-		registry.addViewController("/test").setViewName("test");
+		registry.addViewController("/login").setViewName("login");
 	}
-	
+
 	@Bean
 	public InternalResourceViewResolver viewResolver() {
 		InternalResourceViewResolver resolver = new InternalResourceViewResolver();

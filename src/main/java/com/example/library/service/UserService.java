@@ -15,7 +15,7 @@ public class UserService {
 	private UserRepository userRepository;
 
 	public User create(User user) {
-		return userRepository.saveAndFlush(user);
+		return userRepository.save(user);
 	}
 
 	public User readById(Integer id) {
@@ -32,5 +32,9 @@ public class UserService {
 
 	public void deleteById(Integer id) {
 		userRepository.deleteById(id);
+	}
+
+	public User readByUsername(String username) {
+		return userRepository.readByUsername(username);
 	}
 }

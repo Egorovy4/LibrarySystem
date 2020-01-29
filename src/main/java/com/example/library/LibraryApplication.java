@@ -12,7 +12,6 @@ import org.springframework.context.annotation.ComponentScan;
 @SpringBootApplication
 @ComponentScan({"com.example.library"})
 public class LibraryApplication {
-
 	public static void main(String[] args) {
 		SpringApplication.run(LibraryApplication.class, args);
 	}

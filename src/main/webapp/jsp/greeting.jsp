@@ -4,11 +4,12 @@
 <html>
 	<head>
 		<meta charset="ISO-8859-1">
-		<title>Insert title here</title>
+		<title>Greeting</title>
 	</head>
 
 	<body>
 		<div>Hello ${name}</div>
-		<div>${json}</div>
+
+		<a href="/main">Main page</a>
 	</body>
 </html>
