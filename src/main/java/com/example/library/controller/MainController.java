@@ -20,9 +20,4 @@ public class MainController {
 		model.addAttribute("name", requestName);
 		return "greeting";
 	}
-
-	@GetMapping("/main")
-	public String test(Model model) {
-		return "main";
-	}
 }
