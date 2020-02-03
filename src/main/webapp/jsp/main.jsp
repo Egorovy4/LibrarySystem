@@ -23,9 +23,8 @@
 			<div><input type="submit" value="To note"/></div>
         </form>
 
-		<form method="post" action="filter">
-			<input type="text" name="filter">
-			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+		<form method="get" action="main">
+			<input type="text" name="filter" value="${filter}">
 			<button type="submit">Find</button>
 		</form>
 
