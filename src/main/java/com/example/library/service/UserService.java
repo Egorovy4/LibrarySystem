@@ -29,7 +29,7 @@ public class UserService implements UserDetailsService {
 		return userRepository.findAll();
 	}
 
-	public User updateById(User user) {
+	public User update(User user) {
 		return userRepository.save(user);
 	}
 

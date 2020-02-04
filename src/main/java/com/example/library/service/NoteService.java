@@ -26,7 +26,7 @@ public class NoteService {
 		return noteRepository.findAll();
 	}
 
-	public Note updateById(Note note) {
+	public Note update(Note note) {
 		return noteRepository.save(note);
 	}
 

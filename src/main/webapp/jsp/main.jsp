@@ -14,6 +14,8 @@
         	<input type="submit" value="Sign Out"/>
         </form>
 		
+		<div><a href="/user">User List</a></div>
+		
 		<div>Main page!</div>
 		
 		<form action="/addNote" method="post">
