@@ -7,6 +7,7 @@
 	<head>
 		<meta charset="ISO-8859-1">
 		<title>Registration</title>
+		<link rel="stylesheet" href="/static/style.css">
 	</head>
 
 	<body>

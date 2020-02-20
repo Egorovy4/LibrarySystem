@@ -6,6 +6,7 @@
 	<head>
 		<meta charset="ISO-8859-1">
 		<title>Main</title>
+		<link rel="stylesheet" href="/static/style.css">
 	</head>
 
 	<body>
@@ -18,9 +19,10 @@
 		
 		<div>Main page!</div>
 		
-		<form action="/addNote" method="post">
+		<form action="/addNote" method="post" enctype="multipart/form-data">
             <div><label> Header : <input type="text" name="header"/> </label></div>
             <div><label> Text : <input type="text" name="text"/> </label></div>
+            <div><label><input type="file" name="file"/> </label></div>
 			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 			<div><input type="submit" value="To note"/></div>
         </form>
@@ -32,7 +34,17 @@
 
 		<div>List of Notes</div>
 		<c:forEach items="${allNotes}" var="currentNote">
-        	<div>${currentNote.header} ${currentNote.text} ${currentNote.author.username}</div>
+        	<div>
+	        	<b>${currentNote.id}</b>
+	        	<i>${currentNote.header}</i>
+	        	<span>${currentNote.text}</span>
+	        	<strong>${currentNote.author.username}</strong>
+	        	<div>
+					<c:if test="${currentNote.filename != null}">
+						<img src="/img/${currentNote.filename}">
+					</c:if>
+				</div>
+        	</div>
         </c:forEach>
 	</body>
 </html>

@@ -28,6 +28,9 @@ public class Note {
 	@JoinColumn(name = "user_id")
 	private User author;
 	
+	@Column(name = "filename")
+	private String filename;
+	
 	public Note() {
 		super();
 	}
@@ -69,6 +72,14 @@ public class Note {
 
 	public void setAuthor(User author) {
 		this.author = author;
+	}
+
+	public String getFilename() {
+		return filename;
+	}
+
+	public void setFilename(String filename) {
+		this.filename = filename;
 	}
 
 	@Override
