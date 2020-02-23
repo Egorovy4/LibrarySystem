@@ -52,7 +52,7 @@
 						<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 						
 						<div class="form-group">
-							<button type="submit" class="btn btn-primary" />To note</button>
+							<button type="submit" class="btn btn-primary">To note</button>
 						</div>
 			        </form>
 		        </div>
