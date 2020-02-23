@@ -16,33 +16,33 @@ import com.example.library.service.UserService;
 
 @Controller
 @RequestMapping("/user")
-@PreAuthorize("hasAuthority('ADMIN')")
+@PreAuthorize("hasAuthority('ROLE_ADMIN')")
 public class UserController {
-	
+
 	@Autowired
 	UserService userService;
-	
+
 	@GetMapping
 	public String showAllUsers(Model model) {
 		model.addAttribute("users", userService.readAll());
-		
+
 		return "userList";
 	}
-	
-	@GetMapping("{user}")
-    public String userEditForm(@PathVariable User user, Model model) {
-        model.addAttribute("userForUpdate", user);
-        model.addAttribute("roles", Role.values());
 
-        return "userEdit";
-    }
-	
+	@GetMapping("{user}")
+	public String userEditForm(@PathVariable User user, Model model) {
+		model.addAttribute("userForUpdate", user);
+		model.addAttribute("roles", Role.values());
+
+		return "userEdit";
+	}
+
 	@PostMapping
-	public String userSave(
-		@ModelAttribute("user") User editedUser
-	) {
+	public String userSave(@ModelAttribute("user") User editedUser) {
 		editedUser.setActive(true);
+
 		userService.update(editedUser);
+
 		return "redirect:/user";
 	}
 }
